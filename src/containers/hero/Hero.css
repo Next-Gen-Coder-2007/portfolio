@@ -1,0 +1,109 @@
+.hero{
+    margin-top: 80px;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    background-color: #dffae0;
+}
+
+.hero-content{
+    width: 50%;
+
+    h1{
+        font-size: 2.5rem;
+        span{
+            background: linear-gradient(
+                #8BC34A,
+                #4CAF50 30%,
+                #945843 55%,
+                #4E342E
+            );
+            background-clip: text;
+            color: transparent;
+        }
+    }
+
+    .hero-roles{
+        font-family: "Bebas Neue";
+        background: linear-gradient(
+            to bottom,
+            #8BC34A,
+            #4CAF50 30%,
+            #945843 55%,
+            #4E342E
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-size: 4rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+
+    .hero-letter {
+        display: inline-block;
+        transform-origin: bottom;
+        will-change: transform;
+    }
+
+    .social-icons {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+
+        &::before {
+            content: '';
+            width: 70px;
+            height: 2px;
+            background-color: #4CAF50;
+            display: block;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #333;
+            transition: color 0.3s ease;
+            margin-right: 10px;
+
+            &:hover {
+                color: #4CAF50;
+            }
+        }
+    }
+    .cta-buttons {
+        display: flex;
+        gap: 20px;
+
+        .cta-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+.hero-image{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    img{
+        width: 300px;
+    }
+}
