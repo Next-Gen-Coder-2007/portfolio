@@ -37,7 +37,7 @@ const Hero = () => {
   };
 
   return (
-    <div className='hero' id='hero'>
+    <div className='hero' id='home'>
       <div className="hero-content">
         <h1>
           Hi, I'm{" "}
@@ -127,6 +127,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="hero-image">
+        <motion.div className="image-bg"/>
         <motion.img 
           src={profilePic} 
           alt="Profile Photo" 
@@ -134,9 +135,9 @@ const Hero = () => {
           dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1, type: "spring", stiffness: 300, damping: 20 }}
+          initial={{ scale: 0.8, filter: 'blur(8px)', opacity: 0 }}
+          animate={{ scale: 1, filter: 'blur(0px)', opacity: 1 }}
+          transition={{ duration: 0.5 }}
         />
       </div>
     </div>

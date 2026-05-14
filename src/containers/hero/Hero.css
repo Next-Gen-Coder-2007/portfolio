@@ -1,11 +1,9 @@
 .hero{
-    margin-top: 80px;
     height: 80vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 50px;
-    background-color: #dffae0;
+    padding: 80px 50px 0 50px;
 }
 
 .hero-content{
@@ -103,7 +101,22 @@
     width: 50%;
     display: flex;
     justify-content: center;
-    img{
+
+    .image-bg {
+        position: absolute;
+        top: 200px;
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+            #1B5E20,
+            #4CAF50
+        );
+        filter: blur(20px);
+    }
+    img {
         width: 300px;
+        border-radius: 200px;
     }
 }
