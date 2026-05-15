@@ -2,39 +2,28 @@ import './Hero.css';
 import profilePic from '../../assets/profile-pic.png';
 import { TypeAnimation } from 'react-type-animation';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { motion, useScroll, useTransform, useSpring } from 'motion/react';
+import { motion } from 'motion/react';
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
   const text = "I'm a passionate developer specializing in MERN stack development, AI & ML, and frontend/backend development. I love creating innovative solutions and continuously learning new technologies.";
 
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.02,
-      },
-    },
-  };
+  const [displayText, setDisplayText] = useState("");
 
-  const letterVariants = {
-    hidden: {
-      opacity: 0,
-      y: -80,
-      rotateX: 90,
-      filter: 'blur(8px)',
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      filter: 'blur(0px)',
-      transition: {
-        type: 'spring',
-        stiffness: 120,
-        damping: 12,
-      },
-    },
-  };
+  useEffect(() => {
+    let index = 0;
+
+    const interval = setInterval(() => {
+      setDisplayText(text.slice(0, index + 1));
+      index++;
+
+      if (index === text.length) {
+        clearInterval(interval);
+      }
+    }, 25);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className='hero' id='home'>
@@ -69,19 +58,10 @@ const Hero = () => {
         />
         <motion.p
           className="hero-description"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         >
-          {text.split('').map((char, index) => (
-            <motion.span
-              key={index}
-              variants={letterVariants}
-              className="hero-letter"
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </motion.span>
-          ))}
+          {displayText}
         </motion.p>
         <div className="social-icons">
           <motion.a
@@ -128,6 +108,32 @@ const Hero = () => {
       </div>
       <div className="hero-image">
         <motion.div className="image-bg"/>
+        <motion.div className='achievements'>
+          <motion.div 
+            className='achievement'
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, type: "spring", stiffness: 300 }}
+          >
+            <p>Continuously learning modern web technologies</p>
+          </motion.div>
+          <motion.div 
+            className='achievement'
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.5, type: "spring", stiffness: 300 }}
+          >            
+          <p>Built multiple <span>React</span> & <span>MERN</span> projects</p>
+          </motion.div>
+          <motion.div 
+            className='achievement'
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2, type: "spring", stiffness: 300 }}
+          >
+            <p>Solved <span>300+</span> problems on LeetCode</p>
+          </motion.div>
+        </motion.div>
         <motion.img 
           src={profilePic} 
           alt="Profile Photo" 
