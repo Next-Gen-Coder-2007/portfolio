@@ -1,152 +1,108 @@
 .about {
-    height: 100vh;
-    width: 100%;
-    padding: 20px 40px;
-    overflow: hidden;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 80px;
+    border: 1px solid black;
 
     .about-title {
         font-size: 2.5rem;
         font-weight: bold;
-        margin-bottom: 20px;
-        flex-shrink: 0;
     }
 
     .about-container {
-        width: 100%;
-        flex: 1;
-
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 30px;
-        overflow: hidden;
+        width: 100%;
+        margin-top: 30px;
 
-        /* LEFT SIDE */
         .model-container {
             width: 50%;
-            height: 100%;
-            position: relative;
+            margin: 0 50px;
 
-            canvas {
-                width: 100% !important;
-                height: 100% !important;
+            .model-wrapper {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center
             }
         }
 
-.about-content {
-    width: 50%;
-    height: 100%;
+        .about-content {
+            width: 50%;
+            border: 1px solid black;
+            margin: 0 50px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+            .education {
+                display: flex;
+                align-items: center;
 
-    overflow: hidden;
+                .education-description {
+                    font-weight: bolder;
+                    font-size:1.2rem;
+                }
 
-    .education {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        margin-bottom: 12px;
+                .education-institution {
+                    font-size: 1rem;
+                }
 
-        img {
-            width: 55px;
-            height: auto;
-            flex-shrink: 0;
-        }
+                .education-year {
+                    font-size: 0.9rem;
+                    color: gray;
+                }
 
-        .education-content {
-            margin-left: 12px;
-
-            .education-description {
-                font-size: 1rem;
-                font-weight: 700;
-                line-height: 1.2;
+                img {
+                    width: 100px;
+                    height: auto;
+                }
             }
 
-            .education-institute {
-                font-size: 0.85rem;
-                margin-top: 2px;
+            .skills-section {
+                margin-top: 20px;
+                width: 100%;
+                border: 1px solid black;
+
+                .main-title {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+
+                .skills-categories {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+                    .category-section {
+                        border: 1px solid black;
+                        margin: 10px;
+
+                        .title {
+                            font-size: 1rem;
+                            font-weight: bold;
+                            margin-bottom: 5px;
+                        }
+
+                        .skills-grid {
+                            display: flex;
+                            flex-wrap: wrap;
+
+                            .skill-icon {
+                                width: 50px;
+                                height: 50px;
+                                margin: 5px;
+                                font-size: 2rem;
+                                border: 1px solid black;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                background-color: white;
+                            }
+                        }
+                    }
+                }
             }
-
-            .education-year {
-                font-size: 0.75rem;
-                opacity: 0.7;
-                margin-top: 2px;
-            }
         }
-    }
-
-.skills-section {
-    width: 100%;
-
-    .main-title {
-        font-size: 1.3rem;
-        margin-bottom: 8px;
-        color: #58B34E;
-    }
-
-    .skills-categories {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-    }
-
-    .category-section {
-        border: 1px solid rgba(88, 179, 78, 0.25);
-        border-radius: 14px;
-        padding: 8px;
-    }
-
-    .category-header {
-        margin-bottom: 6px;
-
-        h2 {
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: #58B34E;
-            line-height: 1;
-        }
-    }
-
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .skill-card {
-        border-radius: 10px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        border: 1px solid rgba(88, 179, 78, 0.15);
-
-        transition: 0.25s ease;
-        cursor: pointer;
-
-        &:hover {
-            transform: translateY(-2px);
-            border-color: #58B34E;
-        }
-
-        .skill-icon {
-            font-size: 2rem;
-            color: #58B34E;
-        }
-
-        p {
-            font-size: 0.52rem;
-            text-align: center;
-        }
-    }
-}
-}
     }
 }

@@ -47,60 +47,60 @@ const About = () => {
     {
       category: "Frontend",
       skills: [
-        { name: "HTML", icon: <FaHtml5 /> },
-        { name: "CSS", icon: <FaCss3Alt /> },
-        { name: "JavaScript", icon: <SiJavascript /> },
-        { name: "React JS", icon: <FaReact /> },
-        { name: "Sass", icon: <SiSass /> },
-        { name: "Tailwind", icon: <SiTailwindcss /> },
-        { name: "Bootstrap", icon: <SiBootstrap /> },
+        { icon: <FaHtml5 /> },
+        { icon: <FaCss3Alt /> },
+        { icon: <SiJavascript /> },
+        { icon: <FaReact /> },
+        { icon: <SiSass /> },
+        { icon: <SiTailwindcss /> },
+        { icon: <SiBootstrap /> },
       ],
     },
 
     {
       category: "Backend",
       skills: [
-        { name: "Flask", icon: <SiFlask /> },
-        { name: "Django", icon: <SiDjango /> },
-        { name: "Express JS", icon: <SiExpress /> },
-        { name: "Node JS", icon: <FaNodeJs /> },
+        { icon: <SiFlask /> },
+        { icon: <SiDjango /> },
+        { icon: <SiExpress /> },
+        { icon: <FaNodeJs /> },
       ],
     },
 
     {
       category: "Languages",
       skills: [
-        { name: "Python", icon: <FaPython /> },
-        { name: "C++", icon: <SiCplusplus /> },
-        { name: "C", icon: <SiC /> },
+        { icon: <FaPython /> },
+        { icon: <SiCplusplus /> },
+        { icon: <SiC /> },
       ],
     },
 
     {
       category: "Tools & Others",
       skills: [
-        { name: "Git", icon: <FaGitAlt /> },
-        { name: "GitHub", icon: <FaGithub /> },
-        { name: "Postman", icon: <SiPostman /> },
-        { name: "VS Code", icon: <VscVscode /> },
+        { icon: <FaGitAlt /> },
+        { icon: <FaGithub /> },
+        { icon: <SiPostman /> },
+        { icon: <VscVscode /> },
       ],
     },
 
     {
       category: "Databases",
       skills: [
-        { name: "PostgreSQL", icon: <SiPostgresql /> },
-        { name: "MySQL", icon: <SiMysql /> },
-        { name: "MongoDB", icon: <SiMongodb /> },
+        { icon: <SiPostgresql /> },
+        { icon: <SiMysql /> },
+        { icon: <SiMongodb /> },
       ],
     },
 
     {
       category: "Machine Learning & AI",
       skills: [
-        { name: "TensorFlow", icon: <SiTensorflow /> },
-        { name: "PyTorch", icon: <SiPytorch /> },
-        { name: "NumPy", icon: <SiNumpy /> },
+        { icon: <SiTensorflow /> },
+        { icon: <SiPytorch /> },
+        { icon: <SiNumpy /> },
       ],
     },
   ];
@@ -109,44 +109,41 @@ const About = () => {
       <p className="about-title">About Me</p>
       <div className="about-container">
         <div className="model-container">
-          <Canvas
-            camera={{ position: [0, 1.2, 4], fov: 35 }}
-          >
-            <ambientLight intensity={1.5} />
-
-            <directionalLight
-              position={[5, 5, 5]}
-              intensity={2}
-            />
-
-            <Environment preset="city" />
-
-            <Float
-              speed={2}
-              rotationIntensity={0.2}
-              floatIntensity={0.4}
-            >
-              <primitive
-                object={model.scene}
-                scale={1.5}
-                position={[0, -1.1, 0]}
-                rotation={[0, Math.PI / 4, 0]}
+          <div className="model-wrapper">
+              <Canvas
+                camera={{ position: [0, 0, 4], fov: 35 }}
+              >
+                <ambientLight intensity={1.5} />
+                <directionalLight
+                position={[5, 5, 5]}
+                intensity={2}
               />
-            </Float>
-
-            <ContactShadows
-              position={[0, -1.4, 0]}
-              opacity={0.4}
-              scale={10}
-              blur={2}
-            />
-
-            <OrbitControls
-              enableZoom={false}
-              autoRotate
-              autoRotateSpeed={1.5}
-            />
-          </Canvas>
+              <Environment preset="city" />
+              <Float
+                speed={2}
+                rotationIntensity={0.2}
+                floatIntensity={0.4}
+              >
+                <primitive
+                  object={model.scene}
+                  scale={1.5}
+                  position={[0, -1.1, 0]}
+                  rotation={[0, Math.PI / 4, 0]}
+                />
+              </Float>
+              <ContactShadows
+                position={[0, -1.4, 0]}
+                opacity={0.4}
+                scale={10}
+                blur={2}
+              />
+              <OrbitControls
+                enableZoom={false}
+                autoRotate
+                autoRotateSpeed={1.5}
+              />
+            </Canvas>
+          </div>
         </div>
         <div className="about-content">
           <div className="education">
@@ -162,27 +159,15 @@ const About = () => {
             <div className="skills-categories">
             {skillData.map((section, index) => (
               <div className="category-section" key={index}>
-                <div className="category-header">
-                  <h2>
-                    {section.category}
-                  </h2>
-
-                  <div
-                    className="line"
-                  ></div>
-                </div>
+                <h1 className='title'>{section.category}</h1>
 
                 <div className="skills-grid">
                   {section.skills.map((skill, i) => (
-                    <div className="skill-card" key={i}>
                       <div
                         className="skill-icon"
                       >
                         {skill.icon}
                       </div>
-
-                      <p>{skill.name}</p>
-                    </div>
                   ))}
                 </div>
               </div>
